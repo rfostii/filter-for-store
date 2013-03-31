@@ -1,0 +1,96 @@
+
+CREATE TABLE "apps_item_accessorie" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "item_id" integer NOT NULL,
+    "accessories_id" integer NOT NULL,
+    UNIQUE ("item_id", "accessories_id")
+)
+;
+CREATE TABLE "apps_item_pictures" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "item_id" integer NOT NULL,
+    "picture_id" integer NOT NULL,
+    UNIQUE ("item_id", "picture_id")
+)
+;
+CREATE TABLE "apps_item" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "name" varchar(255) NOT NULL,
+    "mark_id" integer NOT NULL,
+    "cathegorie_id" integer NOT NULL,
+    "price" real NOT NULL,
+    "availability" bool NOT NULL,
+    "description" text NOT NULL,
+    "rating" integer NOT NULL,
+    "features_id" integer NOT NULL,
+    "review_id" integer NOT NULL
+)
+;
+CREATE TABLE "apps_mark" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "name" varchar(255) NOT NULL
+)
+;
+CREATE TABLE "apps_cathegorie" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "name" varchar(255) NOT NULL
+)
+;
+CREATE TABLE "apps_comment" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "name" varchar(255) NOT NULL,
+    "body" text NOT NULL,
+    "item_id" integer NOT NULL REFERENCES "apps_item" ("id")
+)
+;
+CREATE TABLE "apps_picture" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "name" varchar(255) NOT NULL,
+    "path" varchar(100) NOT NULL
+)
+;
+CREATE TABLE "apps_feature" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "short_description" text NOT NULL,
+    "diagonal" real NOT NULL,
+    "resolution" varchar(10) NOT NULL,
+    "view" varchar(100) NOT NULL,
+    "os" varchar(100) NOT NULL,
+    "proccesor" varchar(100) NOT NULL,
+    "hdd" integer NOT NULL,
+    "cores" integer NOT NULL
+)
+;
+CREATE TABLE "apps_accessories_items" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "accessories_id" integer NOT NULL,
+    "item_id" integer NOT NULL REFERENCES "apps_item" ("id"),
+    UNIQUE ("accessories_id", "item_id")
+)
+;
+CREATE TABLE "apps_accessories_pictures" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "accessories_id" integer NOT NULL,
+    "picture_id" integer NOT NULL REFERENCES "apps_picture" ("id"),
+    UNIQUE ("accessories_id", "picture_id")
+)
+;
+CREATE TABLE "apps_accessories" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "name" varchar(255) NOT NULL
+)
+;
+CREATE TABLE "apps_review" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "name" varchar(200) NOT NULL
+)
+;
+CREATE INDEX "apps_item_31f1de87" ON "apps_item" ("mark_id");
+CREATE INDEX "apps_item_4d02e168" ON "apps_item" ("cathegorie_id");
+CREATE INDEX "apps_item_33cbc121" ON "apps_item" ("features_id");
+CREATE INDEX "apps_item_a0363c29" ON "apps_item" ("review_id");
+CREATE INDEX "apps_comment_0a47aae8" ON "apps_comment" ("item_id");
+
+COMMIT;
+
+Process finished with exit code 0

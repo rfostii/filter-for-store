@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^(admin-media/.*)$ - [L]
+RewriteRule ^(media/.*)$ - [L]
+RewriteRule ^(.*)$ /webapp/$1 [L,QSA]

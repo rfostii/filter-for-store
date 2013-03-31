@@ -1,0 +1,28 @@
+<html>
+    <head>
+	<title>Добро пожаловать в хостинг DiPHOST</title>
+	<link href="http://diphost.ru/css/error.css" type="text/css" rel="stylesheet" />
+	<script language="JavaScript" type="text/javascript"><!--
+	function support() {document.write('<a href="mailto:support'+'@'+'diphost.ru" >службе технической поддержки</a>');}
+	--></script>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+    <div id="h">
+	<div id="dh"><a href="http://diphost.ru/"><img src="http://diphost.ru/i/err_dhlogo.gif" width="130" height="26" alt="Отличный хостинг"  title="Отличный хостинг"/></a></div>
+	<div id="s">Хостинг от профессионалов</div>
+	<div id="e">Новый сайт на хостинге DiPHOST</div>
+    </div>
+    <div id="d">
+	<b>Здравствуйте</b><br/><br/>
+	Вы попали на вновь созданный сайт <!--#echo var="HTTP_HOST" -->, созданный на хостинге DiPHOST.<br/><br/>
+	Если вы владелец этого сайта, вам необходимо закачать его файлы к нам на сервер. Например, используя программу <a href="http://diphost.ru/help/access/ftp">FTP</a>.<br/><br/>
+	Если у вас возникают какие-либо вопросы, связанные с этим сайтом или хостингом DiPHOST вообще, не стесняйтесь задать их в <script language="javascript" type="text/javascript">support();</script>.<br/><br/>
+	Ответы на основные вопросы содержатся в <a href="http://diphost.ru/help/">инструкциях</a>.
+
+
+
+    <div id="dl" style="width: 100%"><img src="http://diphost.ru/i/err_dremles.gif" width="157" height="35"/></div>
+    </div>
+    </body>
+</html>
