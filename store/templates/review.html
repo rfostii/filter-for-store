@@ -7,7 +7,7 @@
                 <p>{{ data.name }}</p>
                 <h4>Pictures</h4>
                 <div id="picture">
-                    {% for picture in data.picture.all %}
+                    {% for picture in data.pictures.all %}
                         <img src="/media/{{ picture.path }}" /><br>
                     {% endfor %}
                 </div>

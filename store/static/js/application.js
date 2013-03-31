@@ -4,7 +4,7 @@ $(document).ready(function(){
 
             var data = $('input[type=text]').val();
 
-            EventHandler.find(({request: data}));
+            EventHandler.find(({request: data}), $('#search_form input[type=text]').val());
     });
 
     $('a, #modal, input[type=submit]').click(function(){
@@ -13,10 +13,12 @@ $(document).ready(function(){
 
     $('.filter').click(function(){
         EventHandler.find(filter());
+
     });
     $('.input_filter').click(function(){
-        $(this).blur(function(){
-            EventHandler.find(filter());
+        $(this).mouseleave(function(){
+
+            EventHandler.find(filter(), $('select[name=mark]').val());
         });
     });
 });
@@ -32,8 +34,8 @@ function filter(){
         high_price:   $('input[name=high_price]').val(),
         availability: $('input[name=availability]').is(":checked"),
         hdd:          $('input[name=hdd]').val(),
-        proccesor:    $('input[name=proccesor]').val(),
-        os:           $('input[name=os]').val(),
+        proccesor:    $('select[name=proccesor]').val(),
+        os:           $('select[name=os]').val(),
         diagonal:     $('input[name=diagonal]').val()
 
     });

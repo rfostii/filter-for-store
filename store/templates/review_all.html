@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+{% load content %}
+{% block content %}
+    {% if data %}
+        {% for data in data %}
+            <div class="full_description">
+                <h4>Name</h4>
+                <p>{{ data.name }}</p>
+                <h4>Pictures</h4>
+                <div id="picture">
+                    {% for picture in data.pictures.all %}
+                        <img src="/media/{{ picture.path }}" /><br>
+                    {% endfor %}
+                </div>
+                <h4>Price</h4>
+                <p class="full_price">{{ data.price }}</p>
+                <h4>Cathegorie</h4>
+                <p class="full_cathegorie">{{ data.cathegorie }}</p>
+                <h4>Availability</h4>
+                <p class="full_availability">{{ data.availability }}</p>
+                <h4>Description</h4>
+                <p class="fulll_description">{{ data.description }}</p>
+                <h4>Accessories</h4>
+                <div id="full_accessories">
+                    {% for accessories in data.accessories.all %}
+                        {{ accessories }}<br>
+                    {% endfor %}
+                </div>
+                <h4>Rating</h4>
+                <div id="full_rating">{{ data.rating }}</div>
+                <h4>Feature</h4>
+                <div id="full_feature">{{ data.feature }}</div>
+                <h4>Review</h4>
+                <video width="640" height="360" src="{{ data.review }}" frameborder="0" allowfullscreen></video><br>
+                <h2>Comments</h2>
+                <div id="comments">
+                    {% for comment in comments.all %}
+                        <h2>{{ comment.name }}</h2>
+                        <p>{{ comment.body }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>"Unfortunately we can't find anything"</p>
+    {% endif %}
+{% endblock %}

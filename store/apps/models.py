@@ -10,12 +10,15 @@ class Item(models.Model):
     description = models.TextField(verbose_name='Description')
     rating = models.IntegerField(verbose_name='Rating', max_length=1)
     accessorie = models.ManyToManyField('Accessories', verbose_name='Accessories', blank=True)
-    feature = models.ForeignKey('Feature', verbose_name='Feature')
-    picture = models.ManyToManyField('Picture', verbose_name='Picture')
+    features = models.ForeignKey('Feature', verbose_name='Feature')
+    pictures = models.ManyToManyField('Picture', verbose_name='Picture')
     review = models.ForeignKey('Review', verbose_name='Review', blank=True)
 
     def __unicode__(self):
         return self.name
+
+    class Meta:
+        ordering = ["cathegorie"]
 
 class Mark(models.Model):
     name = models.CharField(max_length=255)
@@ -63,8 +66,8 @@ class Feature(models.Model):
 
 class Accessories(models.Model):
     name = models.CharField(verbose_name='Name', max_length=255)
-    picture = models.ManyToManyField('Picture', verbose_name='Picture')
-    items = models.ManyToManyField('Item', verbose_name='Item')
+    pictures = models.ManyToManyField('Picture', verbose_name='Picture')
+    items = models.ManyToManyField('Item', verbose_name='Item', blank=True)
 
     def __unicode__(self):
         return self.name

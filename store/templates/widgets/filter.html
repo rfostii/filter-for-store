@@ -1,13 +1,13 @@
 
 <form action="" method="post" id="filter_form">
     <p>Cathegories</p>
-    <select name="cathegories">
+    <select name="cathegories" >
         {% for cathegorie in cathegories %}
             <option class="filter">{{ cathegorie.name }}</option><Br>
         {% endfor %}
     </select>
     <p>Mark</p>
-    <select name="mark">
+    <select name="mark" id="item_mark" class="input_filter">
         {% for mark in marks %}
             <option class="filter">{{ mark.name }}</option><Br>
         {% endfor %}
@@ -18,9 +18,15 @@
     <p>Diagonal</p>
     <input class="input_filter" type="text" name="diagonal" value="10.1" id="diagonal"/><br>
     <p>OS</p>
-    <input class="input_filter" type="text" name="os" value="Linux" id="os"/><br>
+    <select class="input_filter" name="os" id="os">
+        <option>Linux</option>
+        <option>Windows</option>
+    </select>
     <p>Proccesor</p>
-    <input class="input_filter" type="text" name="proccesor" value="intel" id="proccesor"/><br>
+    <select class="input_filter" name="proccesor"  id="proccesor">
+        <option>Intel</option>
+        <option>Amd</option>
+    </select>
     <p>HDD</p>
     <input class="input_filter" type="text" name="hdd" value="64" id="hdd"/><br>
     <input class="filter" type="checkbox" name="availability" value="availability">Availability<br>

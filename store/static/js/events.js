@@ -1,6 +1,6 @@
 var EventHandler = (function(){
 
-    function find(data){
+    function find(data, item){
         $.ajax({
             url:'/store/products/',
             data: data,
@@ -9,13 +9,12 @@ var EventHandler = (function(){
             success: function(data){
                 var result = $('#list_for_found_items');
                 result.show();
-
                $('#modal').show();
                result.html(data);
-               $("#other").attr('href', '/store/review/' + $('#search_form input[type=text]').val());
+               $("#other").attr('href', '/store/review_all/' + item);
             },
             error: function(e){
-                console.log(e.error())
+
             }
         });
     }

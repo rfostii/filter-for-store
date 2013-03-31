@@ -13,6 +13,15 @@ def review(request, name):
                                              'comments': Comment.objects.filter(item=response)},
                               context_instance = RequestContext(request))
 
+def review_all(request, name):
+    response = Item.objects.filter(
+        Q(name__icontains=name) |
+        Q(description__icontains=name)
+    )[:5]
+    return render_to_response("review_all.html",{"data": response,
+                                             'comments': Comment.objects.filter(item=response)},
+                              context_instance = RequestContext(request))
+
 def item_filter(request):
     response = ''
     if request.method == 'POST':
@@ -25,9 +34,9 @@ def item_filter(request):
                     availability = True
                 else:
                     availability = False
-                feature = Feature.objects.filter(Q(diagonal__gte=input_data['diagonal'])).filter(Q(os__icontains=input_data['os'])).filter(hdd__gte=input_data['hdd']).filter(Q(proccesor__icontains=input_data['proccesor']))
+                feature = Feature.objects.filter(Q(diagonal__gte=input_data['diagonal'])).filter(Q(os__icontains=input_data['os'])).filter(hdd__lte=input_data['hdd']).filter(Q(proccesor__icontains=input_data['proccesor']))
                 mark = Mark.objects.filter(name=input_data['mark'])
-                response = Item.objects.all().filter(mark=mark).filter(cathegorie=cathegorie).filter().filter(availability=availability).filter(price__lte=input_data['high_price']).filter(price__gte=input_data['low_price']).filter(feature=feature)[:5]
+                response = Item.objects.all().filter(mark=mark).filter(cathegorie=cathegorie).filter().filter(availability=availability).filter(price__lte=input_data['high_price']).filter(price__gte=input_data['low_price']).filter(features=feature)[:5]
             else:
                 response = Item.objects.filter(
                     Q(name__icontains=input_data) |

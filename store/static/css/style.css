@@ -59,7 +59,7 @@ body{
 }
 #proccesor, #os, #hdd, #diagonal {
     width: 70px;
-    height: 15px;
+    height: 35px;
 }
 #filter {
     position: fixed;
