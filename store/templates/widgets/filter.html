@@ -1,0 +1,27 @@
+
+<form action="" method="post" id="filter_form">
+    <p>Cathegories</p>
+    <select name="cathegories">
+        {% for cathegorie in cathegories %}
+            <option class="filter">{{ cathegorie.name }}</option><Br>
+        {% endfor %}
+    </select>
+    <p>Mark</p>
+    <select name="mark">
+        {% for mark in marks %}
+            <option class="filter">{{ mark.name }}</option><Br>
+        {% endfor %}
+    </select>
+    <p>Price</p>
+    <input class="input_filter" type="text" name="low_price" value="100" id="low"/>
+    <input class="input_filter" type="text" name="high_price" value="1000" id="high"/><br><br>
+    <p>Diagonal</p>
+    <input class="input_filter" type="text" name="diagonal" value="10.1" id="diagonal"/><br>
+    <p>OS</p>
+    <input class="input_filter" type="text" name="os" value="Linux" id="os"/><br>
+    <p>Proccesor</p>
+    <input class="input_filter" type="text" name="proccesor" value="intel" id="proccesor"/><br>
+    <p>HDD</p>
+    <input class="input_filter" type="text" name="hdd" value="64" id="hdd"/><br>
+    <input class="filter" type="checkbox" name="availability" value="availability">Availability<br>
+</form>

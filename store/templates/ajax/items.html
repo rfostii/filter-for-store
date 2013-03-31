@@ -1,0 +1,13 @@
+{% load content %}
+
+{% if data %}
+    {% for data in data %}
+        <div class="item">
+            <h2><a href="/store/review/{{ data.name }}">{{ data.name }}</a></h2>
+            <p class="price">{{ data.price }}</p>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>"Unfortunately we can't find anything"</p>
+{% endif %}
+<a href="#" id="other">other items...</a>

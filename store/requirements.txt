@@ -1,0 +1,4 @@
+pep8
+django==1.5
+simplejson
+

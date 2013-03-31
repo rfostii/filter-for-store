@@ -1,0 +1,30 @@
+{% load static %}
+{% load search %}
+{% load filter %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Store</title>
+    <link type="text/css" rel="stylesheet" href="{% static "assets/css/style.css" %}" >
+    <script type="text/javascript" src="{% static "assets/js/frameworks.js" %}"></script>
+    <script type="text/javascript" src="{% static "assets/js/application.js" %}"></script>
+    <script type="text/javascript" src="{% static "assets/js/events.js" %}"></script>
+</head>
+<body>
+    <div id="menu">
+        <ul>
+            <li><a href="/store/review/Acer">Review</a></li>
+            <li><a href="/store/products/">Products</a></li>
+        </ul>
+    </div>
+    <div id="modal"></div>
+    {% search %}
+    <div id="filter">
+        {% filter %}
+    </div>
+    {% block content %}
+            <div id="content"></div>
+    {% endblock %}
+    <div id="list_for_found_items"></div>
+</body>
+</html>
